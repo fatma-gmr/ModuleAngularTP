@@ -1,0 +1,13 @@
+<section class="consult-card">
+  <h1>Consultation d'activité</h1>
+  @if (id) {
+    <ul>
+      <li>Premier paramètre : <strong>{{ id }}</strong></li>
+      @if (secondId) {
+        <li>Deuxième paramètre : <strong>{{ secondId }}</strong></li>
+      }
+    </ul>
+  } @else {
+    <p>Aucun paramètre transmis.</p>
+  }
+</section>
