@@ -37,6 +37,11 @@ input.btn{
   padding: .5em;
   font-weight:bold;
   cursor:pointer;
+  border: 0;
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  width: 100%;
 }
 
 .fade-in {

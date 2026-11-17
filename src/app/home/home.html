@@ -12,12 +12,14 @@
     <p class="sm">Un nouvel élément de liste</p>
   </div>
   <div class="col">
-    @for (objectif of objectifs; track objectif) {
-      <p class="life-container" animate.enter="fade-in">{{ objectif }}</p>
+    @for (objectif of activiteService.objectifs; track $index) {
+      <button type="button" class="life-container" animate.enter="fade-in" (click)="consulter($index)">
+        {{ objectif }}
+      </button>
     }
   </div>
   <div class="col">
-    <input type="text" class="txt" name="jsp" placeholder="..." [(ngModel)]="objectifText"> <!-- màj la var 'objectifText' -->
+    <input type="text" class="txt" name="objectif" placeholder="Nouvelle activité" [(ngModel)]="objectifText">
     <input type="submit" class="btn" name="tkt" [value]="btnText" (click)="ajoutItem()">
   </div>
 </div>

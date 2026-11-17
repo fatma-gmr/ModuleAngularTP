@@ -29,9 +29,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -71,6 +69,15 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/ModuleAngularTP/",
+            "buildTarget": "ModuleAngularTP4:build:production",
+            "repo": "https://github.com/fatma-gmr/ModuleAngularTP.git",
+            "branch": "gh-pages"
+          }
         }
       }
     }

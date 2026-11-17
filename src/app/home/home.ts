@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActiviteService } from '../services/activite.service';
 
 @Component({
   imports: [FormsModule],
@@ -9,23 +10,26 @@ import { Router } from '@angular/router';
   templateUrl: './home.html',
 })
 export class Home {
-  nbItems: number = 4;
-  btnText: string = "Envoyer";
-  objectifText: string = "";
-  objectifs: string[] = [];
+  objectifText = '';
+  readonly btnText = 'Ajouter';
 
-  constructor(private monRouteur: Router) {}
+  constructor(
+    readonly activiteService: ActiviteService,
+    private monRouteur: Router,
+  ) {}
+
+  get nbItems(): number {
+    return this.activiteService.objectifs.length;
+  }
 
   ajoutItem() {
-    const objectif = this.objectifText.trim();
-    if (!objectif) return;
-    this.objectifs.push(objectif);
+    if (!this.objectifText.trim()) return;
+    this.activiteService.addItem(this.objectifText);
     this.objectifText = '';
-    this.nbItems++;
     setTimeout(() => this.monRouteur.navigate(['/about']), 1000);
   }
 
-  ngOnInit() {
-    this.nbItems = this.objectifs.length;
+  consulter(index: number): void {
+    void this.monRouteur.navigate(['/consultAct', index]);
   }
 }

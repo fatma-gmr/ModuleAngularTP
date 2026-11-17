@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActiviteService } from '../services/activite.service';
 
 @Component({
   imports: [],
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './about.html',
 })
 export class About {
-  name: string = "Kylian Mbappé";
+  readonly name = 'Kylian Mbappé';
+
+  constructor(readonly activiteService: ActiviteService) {}
 }

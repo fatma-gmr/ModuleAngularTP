@@ -22,7 +22,7 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('a[routerLink="/about"]')?.textContent).toContain('About');
+    expect(compiled.querySelector('a[href="/about"]')?.textContent).toContain('About');
     expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

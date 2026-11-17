@@ -1,6 +1,6 @@
-# Module Angular TP4
+# Module Angular TP5
 
-Projet Angular issu du TP3 et complété pour le TP4 (animations et routing).
+Projet Angular poursuivi depuis les TP3 et TP4. Ce TP ajoute les services partagés, la gestion des activités et la préparation du déploiement GitHub Pages.
 
 ## Démarrer le projet
 
@@ -18,5 +18,13 @@ L'application démarre sur `http://localhost:4200/`.
 - Animation d'entrée lors de l'ajout d'un objectif.
 - Navigation automatique vers About une seconde après l'ajout d'un objectif.
 - Page `consultAct` avec zéro, un ou deux paramètres d'URL.
+- Service singleton pour partager les activités entre Accueil, About et le détail.
+- Consultation, modification et suppression d'une activité.
+
+## Déploiement GitHub Pages
+
+Le dépôt est `fatma-gmr/ModuleAngularTP`. Le déploiement est configuré pour utiliser `/ModuleAngularTP/` comme base URL. Après publication, le site sera accessible à `https://fatma-gmr.github.io/ModuleAngularTP/`.
+
+Commande prévue : `ng deploy --base-href=/ModuleAngularTP/` (publication sur la branche `gh-pages`).
 
 Exemples : `/consultAct`, `/consultAct/bonjour` et `/consultAct/caMarche/deuxParam`.

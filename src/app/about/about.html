@@ -1,1 +1,14 @@
-<p>Bonjour {{ name }} !</p>
+<section class="about-panel">
+  <h1>Bonjour {{ name }} !</h1>
+  <p>About works!</p>
+  <h2>Mes activités ({{ activiteService.objectifs.length }})</h2>
+  @if (activiteService.objectifs.length) {
+    <ol>
+      @for (objectif of activiteService.objectifs; track $index) {
+        <li>{{ objectif }}</li>
+      }
+    </ol>
+  } @else {
+    <p>Aucune activité pour le moment.</p>
+  }
+</section>

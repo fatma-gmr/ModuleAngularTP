@@ -1,13 +1,30 @@
 <section class="consult-card">
   <h1>Consultation d'activité</h1>
-  @if (id) {
+  @if (activite !== null) {
     <ul>
-      <li>Premier paramètre : <strong>{{ id }}</strong></li>
-      @if (secondId) {
-        <li>Deuxième paramètre : <strong>{{ secondId }}</strong></li>
-      }
+      <li>
+        Nom de l'activité :
+        @if (editMode) {
+          <input aria-label="Titre de l'activité" [(ngModel)]="editedTitle" />
+        } @else {
+          <strong>{{ activite }}</strong>
+        }
+      </li>
     </ul>
+    <div class="actions">
+      <button type="button" class="btn btn-danger" (click)="supprimeElem()">Supprimer</button>
+      @if (editMode) {
+        <button type="button" class="btn" (click)="sauvegarder()">Sauvegarder</button>
+      } @else {
+        <button type="button" class="btn" (click)="modifier()">Modifier</button>
+        <a class="btn btn-return" routerLink="/">Retour</a>
+      }
+    </div>
   } @else {
-    <p>Aucun paramètre transmis.</p>
+    <p>Aucune activité trouvée pour l'identifiant « {{ id ?? 'absent' }} ».</p>
+    @if (secondId) {
+      <p>Deuxième paramètre reçu : {{ secondId }}</p>
+    }
+    <a class="btn btn-return" routerLink="/">Retour à l'accueil</a>
   }
 </section>
